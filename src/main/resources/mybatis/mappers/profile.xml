@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.slam.dao.ProfileDAO">
+    
+    <select id="selectProfileByUserId" parameterType="String" resultType="profile">
+        SELECT * FROM profiles WHERE user_id = #{userId}
+    </select>
+    
+    <insert id="insertProfile" parameterType="profile">
+        INSERT INTO profiles (profile_id, user_id, affiliation, introduction, 
+                             interests, languages_spoken, languages_learning, 
+                             phone_number, major, nationality)
+        VALUES (profile_seq.NEXTVAL, #{userId}, #{affiliation}, #{introduction},
+                #{interests}, #{languagesSpoken}, #{languagesLearning},
+                #{phoneNumber}, #{major}, #{nationality})
+    </insert>
+    
+    <update id="updateProfile" parameterType="profile">
+        UPDATE profiles 
+        SET affiliation = #{affiliation}, introduction = #{introduction},
+            interests = #{interests}, languages_spoken = #{languagesSpoken},
+            languages_learning = #{languagesLearning}, phone_number = #{phoneNumber},
+            major = #{major}, nationality = #{nationality}
+        WHERE user_id = #{userId}
+    </update>
+    
+</mapper>

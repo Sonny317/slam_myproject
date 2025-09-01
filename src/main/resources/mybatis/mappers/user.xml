@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.slam.dao.UserDAO">
+    
+    <select id="selectAllUsers" resultType="user">
+        SELECT * FROM users ORDER BY created_at DESC
+    </select>
+    
+    <select id="selectUserById" parameterType="String" resultType="user">
+        SELECT * FROM users WHERE user_id = #{userId}
+    </select>
+    
+    <insert id="insertUser" parameterType="user">
+        INSERT INTO users (user_id, email, password, role, nickname, status, created_at)
+        VALUES (#{userId}, #{email}, #{password}, #{role}, #{nickname}, #{status}, SYSDATE)
+    </insert>
+    
+    <update id="updateUser" parameterType="user">
+        UPDATE users 
+        SET email = #{email}, nickname = #{nickname}, status = #{status}
+        WHERE user_id = #{userId}
+    </update>
+    
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM users WHERE user_id = #{userId}
+    </delete>
+    <!-- 이메일로 사용자 조회 -->
+	<select id="selectUserByEmail" parameterType="String" resultType="user">
+    SELECT * FROM users WHERE email = #{email}
+	</select>
+
+	<!-- 로그인 검증 -->
+	<select id="loginUser" parameterType="user" resultType="user">
+    SELECT * FROM users 
+    WHERE email = #{email} AND password = #{password}
+	</select>
+
+	<!-- 사용자 상태 변경 -->
+	<update id="updateUserStatus" parameterType="user">
+    UPDATE users SET status = #{status} WHERE user_id = #{userId}
+	</update>
+</mapper>
