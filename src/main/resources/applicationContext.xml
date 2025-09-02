@@ -10,23 +10,27 @@
     <!-- Properties 파일 로드 -->
     <context:property-placeholder location="classpath:database.properties"/>
     
-    <context:component-scan base-package="com.slam"/>
+    <!-- 컨트롤러 제외하고 스캔 (Service, Repository, DAO 등) -->
+    <context:component-scan base-package="com.slam">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
     <!-- MyBatis SqlSessionFactory 설정 -->
-<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-    <property name="dataSource" ref="dataSource"/>
-    <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
-</bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+    </bean>
 
-<!-- MyBatis SqlSessionTemplate 설정 -->
-<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-    <constructor-arg index="0" ref="sqlSessionFactory"/>
-</bean>
+    <!-- MyBatis SqlSessionTemplate 설정 -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
 
-<!-- DataSource 설정 -->
-<bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
-    <property name="driver" value="${db.driver}"/>
-    <property name="url" value="${db.url}"/>
-    <property name="username" value="${db.username}"/>
-    <property name="password" value="${db.password}"/>
-</bean>
+    <!-- DataSource 설정 -->
+    <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
+        <property name="driver" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
 </beans>

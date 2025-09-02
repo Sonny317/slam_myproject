@@ -1,8 +1,0 @@
-# Database Configuration Example
-# 이 파일을 복사하여 database.properties로 이름을 변경하고 실제 값들을 입력하세요.
-# database.properties는 .gitignore에 포함되어 Git에 올라가지 않습니다.
-
-db.driver=oracle.jdbc.driver.OracleDriver
-db.url=jdbc:oracle:thin:@localhost:1521:XE
-db.username=your_username
-db.password=your_password
