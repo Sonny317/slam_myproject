@@ -43,3 +43,6 @@ Thumbs.db
 # Database
 *.db
 *.sqlite
+
+# Database Configuration (보안상 Git에 포함하지 않음)
+database.properties

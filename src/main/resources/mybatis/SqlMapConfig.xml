@@ -9,18 +9,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias type="com.slam.vo.Profile" alias="profile"/>
     </typeAliases>
 
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-                <property name="username" value="slam"/>
-                <property name="password" value="slam123"/>
-            </dataSource>
-        </environment>
-    </environments>
-
     <mappers>
         <mapper resource="mybatis/mappers/user.xml"/>
         <mapper resource="mybatis/mappers/profile.xml"/>
