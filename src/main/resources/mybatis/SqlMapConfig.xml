@@ -4,6 +4,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="VARCHAR"/>
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    
     <typeAliases>
         <typeAlias type="com.slam.vo.User" alias="user"/>
         <typeAlias type="com.slam.vo.Profile" alias="profile"/>

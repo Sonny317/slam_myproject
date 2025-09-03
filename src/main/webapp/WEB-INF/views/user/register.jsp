@@ -17,8 +17,10 @@
                 <label for="userId" class="form-label">
                     user ID *
                 </label>
-                <input type="texT" class="form-control" id="userId" name="userId" required>
-                <div id="userIdCheck" class="form-text">
+                <input type="text" class="form-control" id="userId" name="userId" required>
+                <div 
+                	id="userIdCheck" class="form-text">
+                </div>
                 
             </div>
 

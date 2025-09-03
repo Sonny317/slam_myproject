@@ -13,10 +13,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM users WHERE user_id = #{userId}
     </select>
     
-    <insert id="insertUser" parameterType="user">
-        INSERT INTO users (user_id, email, password, role, nickname, status, created_at)
-        VALUES (#{userId}, #{email}, #{password}, #{role}, #{nickname}, #{status}, SYSDATE)
-    </insert>
+   <insert id="insertUser" parameterType="user">
+    INSERT INTO users (user_id, email, password, role, nickname, status, created_at)
+    VALUES (
+        #{userId,jdbcType=VARCHAR}, 
+        #{email,jdbcType=VARCHAR}, 
+        #{password,jdbcType=VARCHAR}, 
+        #{role,jdbcType=VARCHAR}, 
+        #{nickname,jdbcType=VARCHAR}, 
+        #{status,jdbcType=VARCHAR}, 
+        SYSDATE
+    )
+</insert>
     
     <update id="updateUser" parameterType="user">
         UPDATE users 
@@ -25,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
     
     <delete id="deleteUser" parameterType="String">
-        DELETE FROM users WHERE user_id = #{userId}
+        DELETE FROM users WHERE user_id = #{value}
     </delete>
     <!-- 이메일로 사용자 조회 -->
 	<select id="selectUserByEmail" parameterType="String" resultType="user">

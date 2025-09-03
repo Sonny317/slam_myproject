@@ -43,12 +43,13 @@
             </a>
             <div class="navbar-nav ms-auto">
                 <c:if test="${empty sessionScope.user}">
-                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/login">로그인</a>
-                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/register">회원가입</a>
+                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/login">Sign In</a>
+                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/register">Sign Up</a>
                 </c:if>
                 <c:if test="${not empty sessionScope.user}">
                     <span class="nav-link text-white">안녕하세요, ${sessionScope.user.nickname}님!</span>
-                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/logout">로그아웃</a>
+                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/logout">Log Out</a>
+                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/user/mypage">My Page</a>
                 </c:if>
             </div>
         </div>
