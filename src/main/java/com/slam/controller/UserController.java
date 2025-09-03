@@ -35,6 +35,7 @@ public class UserController {
 	public String login(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
 		try {
 			User user = userService.loginUser(email, password);
+			System.out.println("로그인 시 가져온 userId: " + user.getUserId());
 			if (user != null) {
 				session.setAttribute("user", user);
 				return "redirect:/main"; // 로그인 성공 시 메인 페이지로 리다이렉트
@@ -89,11 +90,12 @@ public class UserController {
 	@GetMapping("/delete-account")
 	public String deleteAccount(HttpSession session, Model model) {
 		User loginUser = (User) session.getAttribute("user");
+		System.out.println("세션에서 가져온 User: " + loginUser);
 		if (loginUser != null) {
+			System.out.println("삭제 시점 userId: " + loginUser.getUserId());
 			userService.deleteUser(loginUser.getUserId());
 			session.invalidate();
 			model.addAttribute("message", "회원 탈퇴가 완료되었습니다");
-
 		} else {
 			model.addAttribute("error", "로그인 상태가 아닙니다.");
 		}
