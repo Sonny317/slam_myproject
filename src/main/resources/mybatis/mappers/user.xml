@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <insert id="insertUser" parameterType="user">
     INSERT INTO users (user_id, email, password, role, nickname, status, created_at)
     VALUES (
-        #{userId,jdbcType=VARCHAR}, 
+        RAWTOHEX(SYS_GUID()), 
         #{email,jdbcType=VARCHAR}, 
         #{password,jdbcType=VARCHAR}, 
         #{role,jdbcType=VARCHAR}, 

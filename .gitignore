@@ -1,48 +1,40 @@
-# Maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-
-# Eclipse
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
+# IDE 설정 파일
+.project
+.classpath
 .settings/
-.loadclasspath
+*.metadata
 
-# IDE
-.idea/
-*.iws
-*.iml
-*.ipr
+# 컴파일된 파일들
+target/
+*.class
+*.war
+*.ear
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs
+# 로그 파일
 *.log
 
-# Database
-*.db
-*.sqlite
+# 임시 파일
+*.tmp
+*.temp
 
-# Database Configuration (보안상 Git에 포함하지 않음)
-database.properties
+# === 중요: 보안 관련 파일들 ===
+# Google OAuth2 시크릿이 포함된 파일 (GitHub에 절대 업로드 금지!)
+src/main/resources/google-oauth.properties
+
+# 데이터베이스 설정 파일 (비밀번호 포함)
+src/main/resources/database.properties
+
+# 기타 보안 설정 파일들
+application-*.properties
+*.key
+*.pem
+*.p12
+
+# OS 관련 파일
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd

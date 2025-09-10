@@ -12,6 +12,10 @@ public class User {
 	private int postCount;
 	private int commentCount;
 	private Date createdAt;
+	  // ✅ 구글 로그인 전용
+	  private String googleId;
+	
+
 	private String profileImageUrl;
 
 	public int getPostCount() {
@@ -97,4 +101,12 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+
+	public String getGoogleId() {
+		return googleId;
+	}
+
+	  public void setGoogleId(String googleId) {
+		  this.googleId = googleId;
+	  }
 }

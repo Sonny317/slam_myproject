@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Properties 파일 로드 -->
-    <context:property-placeholder location="classpath:database.properties"/>
+    <context:property-placeholder location="classpath:database.properties,classpath:google-oauth.properties"/>
     
     <!-- 컨트롤러 제외하고 스캔 (Service, Repository, DAO 등) -->
     <context:component-scan base-package="com.slam">

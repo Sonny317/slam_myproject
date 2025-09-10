@@ -1,0 +1,6 @@
+# Google OAuth2 설정 예시 파일
+# 이 파일을 복사해서 google-oauth.properties로 이름을 바꾸고 실제 값을 입력하세요
+
+google.oauth.client.id=YOUR_GOOGLE_CLIENT_ID_HERE
+google.oauth.client.secret=YOUR_GOOGLE_CLIENT_SECRET_HERE
+google.oauth.redirect.uri=http://localhost:8080/slam_myproject/user/google-login

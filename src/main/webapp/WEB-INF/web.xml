@@ -23,7 +23,17 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- 2. Root ApplicationContext (Service, DAO 등) 로딩 -->
+    <!-- 2. Google OAuth를 위한 CORS 필터 -->
+    <filter>
+        <filter-name>corsFilter</filter-name>
+        <filter-class>com.slam.filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>corsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 3. Root ApplicationContext (Service, DAO 등) 로딩 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
@@ -32,7 +42,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!-- 3. Spring MVC의 DispatcherServlet 설정 -->
+    <!-- 4. Spring MVC의 DispatcherServlet 설정 -->
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -47,7 +57,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- 4. (추가) JSP 컴파일 시 사용할 인코딩을 UTF-8로 강제 -->
+    <!-- 5. (추가) JSP 컴파일 시 사용할 인코딩을 UTF-8로 강제 -->
     <servlet>
         <servlet-name>jsp</servlet-name>
         <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -65,7 +75,7 @@
         <url-pattern>*.jsp</url-pattern>
     </servlet-mapping>
     
-    <!-- 5. (추가) 모든 JSP 파일의 기본 페이지 인코딩을 UTF-8로 강제 -->
+    <!-- 6. (추가) 모든 JSP 파일의 기본 페이지 인코딩을 UTF-8로 강제 -->
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

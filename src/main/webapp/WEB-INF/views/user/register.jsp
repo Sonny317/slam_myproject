@@ -13,16 +13,7 @@
         </c:if>
 
         <form action="${pageContext.request.contextPath}/user/register" method="post"  id="registerForm">
-            <div class="mb-3">
-                <label for="userId" class="form-label">
-                    user ID *
-                </label>
-                <input type="text" class="form-control" id="userId" name="userId" required>
-                <div 
-                	id="userIdCheck" class="form-text">
-                </div>
-                
-            </div>
+            
 
             <div class="mb-3">
                 <label for="email" class="form-label">
